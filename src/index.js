@@ -6,8 +6,8 @@ module.exports = function toReadable (number) {
       if (number < 10) {
           return 'x';
       } else if ((number >= 10) && (number < 20)) {
-          return 'xx'
-      }
+          return '1x';
+      } 
     }
   
     if (whatKind (number) === 'x') {
@@ -35,8 +35,8 @@ module.exports = function toReadable (number) {
         default:
          return undefined; 
       }
-      return result;
-      } else if (whatKind (number) === 'xx') {
+      
+      } else if (whatKind (number) === '1x') {
           switch (number) {
               case 10:
                return 'ten';
@@ -61,9 +61,8 @@ module.exports = function toReadable (number) {
               default:
                return undefined; 
             }
-            return result; 
-      }
+        }
     } 
   
   
-  console.log(toReadable (5));
+ 
