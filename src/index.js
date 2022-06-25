@@ -3,11 +3,21 @@ module.exports = function toReadable (number) {
     let result = '';
   
     function whatKind (number) {
-      if (number < 10) {
+       if (numberStr.length === 1) {
           return 'x';
-      } else if ((number >= 10) && (number < 20)) {
+      } else if ((numberStr.length === 2) && (numberStr[0] === '1')) {
           return '1x';
-      } 
+      } else if ((numberStr.length === 2) && (numberStr[0] !== '1')) {
+        return 'xx';
+      } else if ((numberStr.length === 3) && (numberStr[1] === '0') && (numberStr[2] === '0')) {
+        return 'x00';    
+      } else if ((numberStr.length === 3) && (numberStr[1] === '0')) {
+        return 'x0x';
+      } else if ((numberStr.length === 3) && (numberStr[1] === '1')) {
+        return 'x1x';
+      } else if ((numberStr.length === 3) && (numberStr[1] !== '0') && (numberStr[1] !== '1')) {
+        return 'xxx';
+      }
     }
   
     if (whatKind (number) === 'x') {
@@ -60,6 +70,11 @@ module.exports = function toReadable (number) {
                return 'nineteen';
               default:
                return undefined; 
+            }
+
+        } else if (whatKind (number) === 'xx') {
+            for (let i = 1; i >= 0; i--) {
+                
             }
         }
     } 
